@@ -1,17 +1,80 @@
 (function () {
 
+    var currentId;
+    // $(".iframediv").mouseenter(function() {
+    //     currentId = $(this).attr("id");
+    //     // console.log(currentId)
+    // });
+
+    $("iframe").mouseenter(function() {
+        currentId = $(this).parent().attr("id");
+        // console.log(currentId)
+    });
+
+    var options = document.querySelectorAll("option");
+    var values = [];
+    for (var i = 0; i < options.length; i++) {
+        values.push(options[i].value);
+    }
+    values = Array.prototype.slice.call(values, 1);
+    console.log(values);
+
+    var intervalId;
+    var currentIndex = 0;
+
+    function startPrinting() {
+        intervalId = setInterval(function(){
+            console.log(values[currentIndex]);
+            window.location.href = values[currentIndex];
+            currentIndex++;
+            if(currentIndex == values.length){
+                currentIndex = 0;
+            }
+        }, 3000);
+    }
+
+    function stopPrinting() {
+        clearInterval(intervalId);
+    }
+
+    //鼠标移入和移出
+    $(".container").mouseenter(function(){
+        $(".line").css("background-color", "white");
+    }).mouseleave(function (){
+        $(".line").css("background-color", "#FC5C7D");
+    });
+
+    $("iframe").mouseenter(function() {
+        // console.log("test")
+        $(".iframe-title").css("flex","0 10%");
+        window.location.href = "#"+currentId;
+    });
+    $("iframe").mouseleave(function() {
+        $(".iframe-title").css("flex","0 20%");
+    });
+
+
+    $("iframe").mouseenter(function(){
+        $(".right-div").css("right", "-20%");
+    }).mouseleave(function (){
+        $(".right-div").css("right", "0");
+    });
+
 	var pause = document.querySelector('.pause');
 	var play = document.querySelector('.play');
-	var btn = document.querySelector('#app');
+	var btn = document.querySelector('.container');
 
 	btn.addEventListener('click', () => {
 		if (play.classList.contains("active")) {
 			play.classList.remove("active");
 			pause.classList.add("active");
+            startPrinting();
 		} else {
 			pause.classList.remove("active");
 			play.classList.add("active");
-		}
+            console.log("pause");
+            stopPrinting();
+        }
 	})
 
     var CuteSelect = CuteSelect || {};
@@ -181,6 +244,10 @@
         selectOption: function (item) {
             var label = item.innerHTML;
             var value = item.getAttribute('data-cuteselect-value');
+            console.log(value);
+            window.location.href = value;
+            console.log(values);
+
             var parent = item.parentNode.parentNode.parentNode;
             var target = parent.getAttribute('data-cuteselect-item');
             var cells = parent.getElementsByTagName('div');

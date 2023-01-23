@@ -15,7 +15,22 @@ html {
 }
 
 
+body {
+	/* background: #C04848; */
+	/* fallback for old browsers */
+	/* background: -webkit-linear-gradient(to right, #480048, #C04848); */
+	/* Chrome 10-25, Safari 5.1-6 */
+	/* background: linear-gradient(to right, #480048, #C04848); */
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #FC5C7D;
+	background-color: #FC5C7D;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #6A82FB, #FC5C7D);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
 
 /* Select style here */
 
@@ -27,7 +42,7 @@ select {
 	/*padding: 15px 5px 15px 5px;*/
 	padding: 10px 5px 10px 5px;
 	cursor: pointer;
-	background: url(http://sharpik.com/wip/cuteselect/arrow.png) 295px 12px no-repeat white;
+	background-color: white;
 	border: 0px solid transparent;
 	border-radius: 30px;
 	box-shadow: 4px 4px 8px #333;
@@ -64,21 +79,6 @@ select option:hover {
 	color: #EC6F66;
 }
 
-body {
-	/* background: #C04848; */
-	/* fallback for old browsers */
-	/* background: -webkit-linear-gradient(to right, #480048, #C04848); */
-	/* Chrome 10-25, Safari 5.1-6 */
-	/* background: linear-gradient(to right, #480048, #C04848); */
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	background: #FC5C7D;
-	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #6A82FB, #FC5C7D);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
 
 body,
 html {
@@ -102,6 +102,7 @@ html {
 	background-color: transparent;
 	/* 设置背景颜色 */
 	text-align: center;
+	transition: 0.5s;
 }
 .selector-wrapper {
 	position: relative;
@@ -122,7 +123,7 @@ header {
 	text-align: center;
 	/* 居中对齐 */
 	background-color: transparent;
-	height: 5vh;
+	height: 6vh;
 }
 
 .floating-div {
@@ -172,7 +173,7 @@ iframe {
 	margin-left: 2%;
 	margin-right: 2%;
 	flex: 1;
-	width: 80%;
+	/*width: 80%;*/
 	/* 调整为页面宽度的80% */
 	/* height: 700px; */
 	height: 90vh;
@@ -181,18 +182,22 @@ iframe {
 	padding: 0px 0px 0px 0px;
 	box-shadow: 4px 4px 8px #333;
 	transition: box-shadow 0.2s;
-
+	transition: margin 0.5s, height 0.5s, box-shadow 0.5s;
 	/* 设置边框 */
 }
 
 iframe:hover {
-	border: 0px solid transparent;
 	border-radius: 30px;
 	/* 设置圆角边框 */
 	/* 设置阴影 */
 	box-shadow: 9px 9px 18px #333;
 	/* 设置阴影 */
 	/* 鼠标移入时边框颜色变化 */
+
+	margin-top: -5vh;
+	margin-bottom: -5vh;
+	height: 100vh;
+
 }
 
 .iframe-title {
@@ -214,10 +219,11 @@ iframe:hover {
 }
 
 .container {
+	color: #FC5C7D;
 	width:15vh;
 	height:15vh;
-	background:#000;
-	background-image:linear-gradient(-20deg,#ddd6f3 0%,#faaca8 100%,#faaca8 100%);
+	background:white;
+	/*background-image:linear-gradient(-20deg,#ddd6f3 0%,#faaca8 100%,#faaca8 100%);*/
 	border-radius:50%;
 	box-shadow:0 0 5px rgba(0,0,0,0.15),0 2px 10px rgba(0,0,0,0.1);
 	display:flex;
@@ -227,8 +233,10 @@ iframe:hover {
 }
 
 .container:hover {
-	width: 20vh;
-	height: 20vh;
+	width: 18vh;
+	height: 18vh;
+	background: #FC5C7D;
+	box-shadow: 9px 9px 18px #333;
 }
 
 #app {
@@ -237,7 +245,7 @@ iframe:hover {
 	position:relative;
 	border-radius:50%;
 	overflow:hidden;
-
+	color: #FC5C7D;
 }
 .pause,.play {
 	width:100%;
@@ -249,12 +257,12 @@ iframe:hover {
 	position:absolute;
 	width:8px;
 	height:50%;
-	background: #111111;
+	background: #FC5C7D;
 	border-radius:10px;
 	transition:all 400ms cubic-bezier(0.8,0,0.33,1);
 	box-shadow: 1px 1px 2px #333;
-	opacity: 0.5;
 }
+
 .pause .line_1 {
 	margin:25% 0;
 	left:28%;
