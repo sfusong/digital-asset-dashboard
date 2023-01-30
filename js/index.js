@@ -1,16 +1,13 @@
 (function () {
 
     var currentId;
-    // $(".iframediv").mouseenter(function() {
-    //     currentId = $(this).attr("id");
-    //     // console.log(currentId)
-    // });
 
+    //获取当前部分的iframeid
     $("iframe").mouseenter(function() {
         currentId = $(this).parent().attr("id");
-        // console.log(currentId)
     });
 
+    //获取所有的iframedivID
     var options = document.querySelectorAll("option");
     var values = [];
     for (var i = 0; i < options.length; i++) {
@@ -19,10 +16,12 @@
     values = Array.prototype.slice.call(values, 1);
     console.log(values);
 
-    var intervalId;
-    var currentIndex = 0;
 
-    function startPrinting() {
+    var intervalId;     //setInterval事件
+    var currentIndex = 0;//当前播放到的id地址
+    var isPlaying = false;//是否正在播放
+
+    function startPlaying() {//开始轮播
         intervalId = setInterval(function(){
             console.log(values[currentIndex]);
             window.location.href = values[currentIndex];
@@ -33,7 +32,7 @@
         }, 3000);
     }
 
-    function stopPrinting() {
+    function stopPrinting() { //暂停播放
         clearInterval(intervalId);
     }
 
@@ -48,9 +47,15 @@
         // console.log("test")
         $(".iframe-title").css("flex","0 10%");
         window.location.href = "#"+currentId;
+        if (isPlaying) {
+            stopPrinting();
+        }
     });
     $("iframe").mouseleave(function() {
         $(".iframe-title").css("flex","0 20%");
+        if (isPlaying) {
+            startPlaying();
+        }
     });
 
 
@@ -68,11 +73,13 @@
 		if (play.classList.contains("active")) {
 			play.classList.remove("active");
 			pause.classList.add("active");
-            startPrinting();
+            isPlaying = true;
+            startPlaying();
 		} else {
 			pause.classList.remove("active");
 			play.classList.add("active");
             console.log("pause");
+            isPlaying = false;
             stopPrinting();
         }
 	})

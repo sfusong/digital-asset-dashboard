@@ -25,9 +25,9 @@ body {
 	background: #FC5C7D;
 	background-color: #FC5C7D;
 	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);
+	background: -webkit-linear-gradient(to right, #FC5C7D, #6A82FB);
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #6A82FB, #FC5C7D);
+	background: linear-gradient(to right, #FC5C7D, #6A82FB);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
@@ -184,6 +184,11 @@ iframe {
 	transition: box-shadow 0.2s;
 	transition: margin 0.5s, height 0.5s, box-shadow 0.5s;
 	/* 设置边框 */
+}
+
+iframe::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
 }
 
 iframe:hover {

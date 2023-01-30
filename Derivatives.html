@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>衍生品市场概览</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+</head>
+<body>
+
+<!--<header>-->
+<!--    <div class="pagetitle">-->
+<!--        <h1>Digital Asset Dashboard</h1>-->
+<!--    </div>-->
+<!--    <div class="floating-div">-->
+<!--    </div>-->
+<!--</header>-->
+
+<div class="right-div" id="right-div">
+    <div class="selector-wrapper">
+        <select name="dropDown" id="dropDown">
+            <option disabled>select</option>
+            <option value="#taker-buy-sell-ratio">Taker买入卖出比率</option>
+            <option value="#position">大户持仓多空比</option>
+            <option value="#AvgFunding">BTC平均资金费率</option>
+            <option value="#Basis">BTC合约基差</option>
+        </select>
+    </div>
+    <div class="play-bottom-wrapper">
+        <div class="container">
+            <div id="app">
+                <div class="pause">
+                    <div class="line line_1"></div>
+                    <div class="line line_2"></div>
+                </div>
+                <div class="play active">
+                    <div class="line line_1"></div>
+                    <div class="line line_2"></div>
+                    <div class="line line_3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="iframediv" id="taker-buy-sell-ratio">
+    <iframe src="https://cryptoquant.com/asset/btc/chart/derivatives/taker-buy-sell-ratio?exchange=all_exchange&window=DAY&sma=0&ema=0&priceScale=log&metricScale=linear&chartStyle=line" allow="fullscreen"></iframe>
+    <p class="iframe-title">全网永续合约<br>Taker买入卖出比率</p>
+</div>
+
+<div class="iframediv" id="position">
+    <iframe src="https://www.coinglass.com/position" allow="fullscreen"></iframe>
+    <p class="iframe-title">大户持仓多空比</p>
+</div>
+
+<div class="iframediv" id="AvgFunding">
+    <iframe src="https://www.coinglass.com/pro/AvgFunding/BTC" allow="fullscreen"></iframe>
+    <p class="iframe-title">BTC平均资金费率</p>
+</div>
+
+<div class="iframediv" id="Basis">
+    <iframe src="https://www.coinglass.com/Basis" allow="fullscreen"></iframe>
+    <p class="iframe-title">BTC合约基差</p>
+</div>
+
+
+
+<!--<div class="iframediv" id="NFT-Scan">-->
+<!--    <iframe src="https://www.nftscan.com/" title="NFTScan" scrolling="auto" allow="fullscreen"></iframe>-->
+<!--    <p class="iframe-title">NFTScan</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv" id="NFT-Stats">-->
+<!--    <iframe src="https://www.nft-stats.com/" title="NFT-stats" allow="fullscreen"></iframe>-->
+<!--    <p class="iframe-title">NFT-stats</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv" id="NFTGo">-->
+<!--    <iframe src="https://mymetadata.io/rank/games" title="NFTGo" allow="fullscreen"></iframe>-->
+<!--    <p class="iframe-title">NFTGo</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv" id="Dappradar">-->
+<!--    <iframe src="https://dappradar.com/rankings/category/games" title="Dappradar" allow="fullscreen"></iframe>-->
+<!--    <p class="iframe-title">Dappradar</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://linen.app/interest-rates/borrow/historical" allow="fullscreen"-->
+<!--            title="LoanScan - Borrow"></iframe>-->
+<!--    <p class="iframe-title">LoanScan - Borrow</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://linen.app/interest-rates/earn/historical" allow="fullscreen"-->
+<!--            title="LoanScan - Earn yield"></iframe>-->
+<!--    <p class="iframe-title">LoanScan - Earn yield</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://www.coinglass.com/LongShortRatio" scrolling="auto" allow="fullscreen"-->
+<!--            title="LongShortRatio"></iframe>-->
+<!--    <p class="iframe-title">LongShortRatio</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://www.nftscan.com/analytics/tracker" scrolling="auto" allow="fullscreen"-->
+<!--            title="NFTScan Analytics"></iframe>-->
+<!--    <p class="iframe-title">NFTScan Analytics</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://nftgo.io/collection/donald-trump-yacht-club/analytics/general" allow="fullscreen"-->
+<!--            scrolling="no" title="W3Schools Free Online Web Tutorials"></iframe>-->
+<!--    <p class="iframe-title">Donald Trump Yacht Club</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://defillama.com/" scrolling="auto" allow="fullscreen" title="Defillama"></iframe>-->
+<!--    <p class="iframe-title">Defillama</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://www.nftscan.com/analytics/tracker" scrolling="auto" allow="fullscreen"-->
+<!--            title="W3Schools Free Online Web Tutorials"></iframe>-->
+<!--    <p class="iframe-title">NFTScan Analytics - Gas Tracker</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://crypto.com/price" frameborder="0" title="Cryptoquant"></iframe>-->
+<!--    <p class="iframe-title">crypto.com</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://www.coinbase.com/explore" scrolling="no" title="coinbase"></iframe>-->
+<!--    <p class="iframe-title">coinbase</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://dappradar.com/rankings" scrolling="no" title="Dappradar"></iframe>-->
+<!--    <p class="iframe-title">Dappradar</p>-->
+<!--</div>-->
+
+<!--<div class="iframediv">-->
+<!--    <iframe src="https://coinmarketcap.com/" scrolling="auto" title="coinmarketcap"></iframe>-->
+<!--    <p class="iframe-title">coinmarketcap</p>-->
+<!--</div>-->
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
